@@ -29,16 +29,18 @@ const cityGroups = _.groupBy(cities, "state");
 console.log(cityGroups);
 
 // SORT ARRAY ALPHABETICALLY BY CITY NAME
-// const sortedCities =
-// console.log(sortedCities);
+const sortedCities = _.sortBy(cities, "cityName", "asc");
+console.log(sortedCities);
 
 // SHOW ONLY CITIES OF CALIFORNIA
-// const californiaCities =
-// console.log(californiaCities);
+const californiaCities = _.filter(cities, { state: "California" });
+console.log(californiaCities);
 
 // SHOW ONLY CITIES OF TEXAS WITH A POPULATION OF LESS THAN 1 MILLION
-// const texasCities =
-// console.log(texasCities);
+const texasCities = _.filter(cities, (city) => {
+  return city.state === "Texas" && city.population < 1000000;
+});
+console.log(texasCities);
 
 // ADD ALL THE POPULATION OF CALIFORNIA CITIES
 // const californiaPopulation =

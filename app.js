@@ -43,9 +43,12 @@ const texasCities = _.filter(cities, (city) => {
 console.log(texasCities);
 
 // ADD ALL THE POPULATION OF CALIFORNIA CITIES
-// const californiaPopulation =
-// console.log(californiaCities);
+const californiaPopulation = _.chain(cities).filter({ state: "California" }).sumBy("population").value();
+console.log(californiaPopulation);
 
 // GROUP BY PARTY AND SHOW ONLY CITIES WITH A POPULATION ABOVE 1 MILLION. SORT CITY NAMES ALPHABETICALLY
-// const newData =
-// console.log(newData);
+const newData = _.chain(cities)
+  .filter((city) => city.population > 1000000)
+  .sortBy("cityName", "asc")
+  .value();
+console.log(newData);
